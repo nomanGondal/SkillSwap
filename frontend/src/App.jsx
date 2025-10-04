@@ -1,0 +1,27 @@
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/homepage";
+import Login from "./pages/loginpage";
+import SignupPage from "./pages/signuppage";
+
+function App() {
+  return (
+    <Router>
+      <div>
+
+        {/* Main content */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignupPage />} />
+            {/* Catch-all route */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        
+      </div>
+    </Router>
+  );
+}
+
+export default App;

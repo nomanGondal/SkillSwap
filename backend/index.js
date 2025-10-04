@@ -5,9 +5,16 @@ const bodyParser = require("body-parser");
 const app = express()
 const port = 3000
 const connectDB = require("./models/db.js");
+const cors = require('cors');
 dotenv.config();
+
+
+
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
