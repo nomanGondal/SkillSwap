@@ -14,7 +14,13 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+  },
+  Image: {
+    public_id: { type: String, required: true },
+    url: {
+      type: String,
   }
+}
 }, { collection: 'registerations' });  // model maped with collection force collection name
 const registerations = mongoose.model("registerations", userSchema);
 module.exports = registerations;
