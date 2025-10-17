@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "./Auth.css";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,7 +24,10 @@ const LoginPage = () => {
       }
 
       localStorage.setItem("token", data.token); // store JWT
-     // onLogin(data.user); // callback → update app state
+      
+     navigate("/dashboard");
+
+
     } catch (err) {
       setError(err.message);
     }

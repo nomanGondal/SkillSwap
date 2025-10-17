@@ -4,7 +4,8 @@ import NotFound from "./pages/NotFound";
 import Home from "./pages/homepage";
 import Login from "./pages/loginpage";
 import SignupPage from "./pages/signuppage";
-
+import Dashboard from "./pages/dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <Router>
@@ -15,6 +16,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignupPage />} />
+            {/* Protected Route */}
+          <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }/>
             {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>

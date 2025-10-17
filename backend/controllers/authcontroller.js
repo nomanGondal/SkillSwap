@@ -17,16 +17,16 @@ const signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         newUser.password = hashedPassword;
         await newUser.save();
-        res.status(201).json({ message: 'User created successfully' });
+        return res.status(201).json({ message: 'User created successfully' });
        
 
         // Generate JWT token
-       /* const token = jwt.sign({ email: newUser.email, id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+       /* const token = jwt.sign({ email: newUser.email, id: newUser._id }, process.env.JWT_SECRET);
         console.log("JWT Token generated:", token);
-        res.status(201).json({ message: 'Signup successful', user: { name: newUser.name, email: newUser.email }, token });*/
+        return res.status(201).json({ message: 'Signup successful', user: { name: newUser.name, email: newUser.email }, token });*/
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Server error' });
+       return res.status(500).json({ message: 'Server error' });
     }
 }
 
@@ -48,7 +48,7 @@ const login = async (req, res) => {
         const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         // If password matches, return success response
         console.log("User logged in successfully:", existingUser);
-        res.status(200).json({ message: 'Login successful', user: { name: existingUser.name, email: existingUser.email },token });
+        return res.status(200).json({ message: 'Login successful', user: { name: existingUser.name, email: existingUser.email },token });
        
     } catch (error) {
         console.error(error);   
