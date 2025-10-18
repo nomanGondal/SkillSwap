@@ -6,6 +6,7 @@ import Login from "./pages/loginpage";
 import SignupPage from "./pages/signuppage";
 import Dashboard from "./pages/dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./pages/profile";
 function App() {
   return (
     <Router>
@@ -22,6 +23,13 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }/>
+          <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }/>
             {/* Catch-all route */}

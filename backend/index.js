@@ -1,6 +1,7 @@
 const express = require('express')
 const dotenv = require("dotenv")
 const authRouter = require('./routers/authrouter.js')
+const userProfileRouter = require('./routers/userprofile.js')
 const filesRouter = require('./routers/filesupload.js')
 const bodyParser = require("body-parser");
 const app = express()
@@ -23,6 +24,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 app.use("/auth", authRouter);
+app.use("/api/user",userProfileRouter)
+app.use("/api/user", userProfileRouter);
 app.use("/files", filesRouter);
 // ===== Connect DB & Start Server =====
 connectDB()

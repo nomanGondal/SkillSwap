@@ -14,7 +14,8 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+    required: true,
   }
-}, { collection: 'registerations' });  // model maped with collection force collection name
+}, { timestamps: true , collection: 'registerations' });  // model maped with collection force collection name
 const registerations = mongoose.model("registerations", userSchema);
 module.exports = registerations;
