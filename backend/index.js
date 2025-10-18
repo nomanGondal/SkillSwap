@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //configrations
 dotenv.config();
-//test
+
 //endpoints
 
 app.get('/', (req, res) => {
